@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -16,10 +17,6 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -30,6 +27,11 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+.packages
+.package_config.json
+
+# Web related
+lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -41,3 +43,148 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# iOS/macOS related
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/ephemeral/
+
+# Coverage
+coverage/
+
+# Build artifacts - COMPREHENSIVE
+build/
+**/build/
+/example/build/
+**/example/build/
+*.apk
+*.aab
+*.ipa
+*.dms
+*.dmg
+*.zip
+*.tar.gz
+*.rar
+
+# All build directories everywhere
+android/build/
+ios/build/
+web/build/
+linux/build/
+macos/build/
+windows/build/
+
+# Flutter build artifacts
+*.dill
+**/*.dill
+*.cache.dill.track.dill
+kernel_blob.bin
+isolate_snapshot_data
+vm_snapshot_data
+*.snapshot
+*.jar
+
+# Native libraries
+*.so
+*.dylib
+*.dll
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Firebase
+.firebase/
+**/google-services.json
+**/GoogleService-Info.plist
+firebase_options.dart
+lib/firebase_options.dart
+
+# Code generation artifacts
+*.g.dart
+*.freezed.dart
+*.config.dart
+*.chopper.dart
+*.reflectable.dart
+
+# Generated assets
+assets/fonts/*.dart
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor directories and files
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Test coverage
+test/coverage/
+coverage/
+
+# Flutter integration test driver logs
+driver/*.log
+
+# FVM Version Cache
+.fvm/
+
+# Android related
+android/.gradle/
+android/app/src/main/res/values/google_services_resources.xml
+android/local.properties
+android/gradle.properties
+android/key.properties
+android/app/upload-keystore.jks
+android/app/debug.keystore
+android/app/build/
+android/.gradle
+*.keystore
+proguard/
+
+# iOS related
+ios/build/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/app.zip
+ios/Flutter/flutter_assets/
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Auto-generated files
+.metadata
+.flutter-plugins-dependencies
