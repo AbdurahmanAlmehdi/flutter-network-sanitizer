@@ -114,7 +114,6 @@ firebase_options.dart
 lib/firebase_options.dart
 
 # Code generation artifacts
-*.g.dart
 *.freezed.dart
 *.config.dart
 *.chopper.dart
