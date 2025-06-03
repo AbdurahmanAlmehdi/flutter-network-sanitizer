@@ -53,4 +53,4 @@ class HiveCachedResponse extends HiveObject {
           SanitizerConstants.cacheTimeStampKey: timestamp.toIso8601String(),
         });
   }
-} 
+}
