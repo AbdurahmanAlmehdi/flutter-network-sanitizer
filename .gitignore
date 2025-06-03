@@ -185,5 +185,4 @@ ios/ServiceDefinitions.json
 ios/Runner/GeneratedPluginRegistrant.*
 
 # Auto-generated files
-.metadata
 .flutter-plugins-dependencies
