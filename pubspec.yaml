@@ -12,8 +12,6 @@ topics:
   - dio
   - http
   - interceptor
-  - performance
-  - deduplication
 
 environment:
   sdk: '>=3.3.4 <4.0.0'
