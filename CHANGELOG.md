@@ -34,5 +34,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `hive: ^2.2.3` - Cross-platform storage
 - `hive_flutter: ^1.1.0` - Flutter-specific Hive extensions
 - `path_provider: ^2.1.4` - Platform-specific paths
-
-[1.0.0]: https://github.com/your-username/network_sanitizer/releases/tag/v1.0.0 

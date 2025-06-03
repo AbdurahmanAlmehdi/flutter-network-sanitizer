@@ -1,10 +1,10 @@
 name: network_sanitizer
 description: A powerful HTTP caching and request deduplication library for Flutter/Dart applications using Dio interceptor. Provides efficient network request optimization with configurable caching, automatic request deduplication, and cross-platform storage support.
 version: 1.0.0
-homepage: https://github.com/your-username/network_sanitizer
-repository: https://github.com/your-username/network_sanitizer
-issue_tracker: https://github.com/your-username/network_sanitizer/issues
-documentation: https://github.com/your-username/network_sanitizer#readme
+homepage: https://github.com/aelkholy9/flutter-network-sanitizer/network_sanitizer
+repository: https://github.com/aelkholy9/flutter-network-sanitizere/network_sanitizer
+issue_tracker: https://github.com/aelkholy9/flutter-network-sanitizer/issues
+documentation: https://github.com/aelkholy9/flutter-network-sanitizer#readme
 
 topics:
   - networking

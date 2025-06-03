@@ -225,4 +225,4 @@ If you find this package helpful, please consider:
 - 💡 Suggesting new features
 - 📝 Contributing to the documentation
 
-For questions and support, please [open an issue](https://github.com/your-username/network_sanitizer/issues) on GitHub.
+For questions and support, please [open an issue](https://github.com/aelkholy9/flutter-network-sanitizer/issues) on GitHub.
