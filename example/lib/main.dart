@@ -147,7 +147,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: ElevatedButton.icon(
                   onPressed: _isLoading ? null : () => _makeRequest('/posts/1'),
-                  icon: const Icon(Icons.download),
                   label: const Text('Fetch Post #1'),
                 ),
               ),
@@ -155,7 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: ElevatedButton.icon(
                   onPressed: _isLoading ? null : () => _makeRequest('/users/1'),
-                  icon: const Icon(Icons.person),
                   label: const Text('Fetch User #1'),
                 ),
               ),
@@ -167,7 +165,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: ElevatedButton.icon(
                   onPressed: _isLoading ? null : _makeDuplicateRequests,
-                  icon: const Icon(Icons.copy),
                   label: const Text('Test Deduplication'),
                 ),
               ),
@@ -175,7 +172,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: ElevatedButton.icon(
                   onPressed: _isLoading ? null : _makeForceRefreshRequest,
-                  icon: const Icon(Icons.refresh),
                   label: const Text('Force Refresh'),
                 ),
               ),
