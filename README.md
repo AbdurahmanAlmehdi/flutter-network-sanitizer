@@ -1,8 +1,5 @@
 # Network Sanitizer
 
-[![pub package](https://img.shields.io/pub/v/network_sanitizer.svg)](https://pub.dev/packages/network_sanitizer)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
 A powerful HTTP caching and request deduplication library for Flutter/Dart applications using Dio interceptor. Network Sanitizer provides efficient network request optimization with configurable caching, automatic request deduplication, and cross-platform storage support.
 
 ## Features
@@ -15,6 +12,11 @@ A powerful HTTP caching and request deduplication library for Flutter/Dart appli
 ✅ **Customizable Cache Manager** - Implement your own cache storage if needed  
 ✅ **Smart Key Generation** - Generates unique keys based on request parameters  
 ✅ **Zero Configuration** - Works out of the box with sensible defaults
+
+
+
+![Live Demo](https://raw.githubusercontent.com/aelkholy9/flutter-network-sanitizer/main/images/demo.gif)
+
 
 ## Installation
 
@@ -39,12 +41,12 @@ import 'package:network_sanitizer/network_sanitizer.dart';
 
 void main() {
   final dio = Dio();
-  
+
   // Add the NetworkSanitizerInterceptor with 5-minute cache duration
   dio.interceptors.add(
     NetworkSanitizerInterceptor(const Duration(minutes: 5)),
   );
-  
+
   // Your requests are now cached and deduplicated automatically!
   final response = await dio.get('/api/users');
 }
@@ -59,7 +61,7 @@ final dio = Dio();
 
 // Cache responses for 2 minutes
 dio.interceptors.add(
-  NetworkSanitizerInterceptor(const Duration(minutes: 2)),
+NetworkSanitizerInterceptor(const Duration(minutes: 2)),
 );
 ```
 
@@ -72,18 +74,18 @@ class CustomCacheManager implements SanitizerCacheManager {
   Future<void> setData(String key, Response response) async {
     // Your custom storage implementation
   }
-  
+
   @override
   Future<Response?> getData(String key, RequestOptions options) async {
     // Your custom retrieval implementation
     return null;
   }
-  
+
   @override
   Future<void> clearAll() async {
     // Clear all cached data
   }
-  
+
   @override
   Future<void> remove(String key) async {
     // Remove specific cached data
@@ -92,10 +94,10 @@ class CustomCacheManager implements SanitizerCacheManager {
 
 // Use your custom cache manager
 dio.interceptors.add(
-  NetworkSanitizerInterceptor.custom(
-    cacheDuration: const Duration(minutes: 5),
-    cacheManager: CustomCacheManager(),
-  ),
+NetworkSanitizerInterceptor.custom(
+cacheDuration: const Duration(minutes: 5),
+cacheManager: CustomCacheManager(),
+),
 );
 ```
 
@@ -104,10 +106,10 @@ dio.interceptors.add(
 ```dart
 // Force refresh by invalidating cache for a specific request
 final response = await dio.get(
-  '/api/users',
-  options: Options(
-    extra: {'invalidateCache': true},
-  ),
+'/api/users',
+options: Options(
+extra: {'invalidateCache': true},
+),
 );
 ```
 
@@ -152,8 +154,8 @@ Creates an interceptor with the specified cache duration using the default Hive 
 
 ```dart
 NetworkSanitizerInterceptor.custom({
-  required Duration cacheDuration,
-  required SanitizerCacheManager cacheManager,
+required Duration cacheDuration,
+required SanitizerCacheManager cacheManager,
 })
 ```
 Creates an interceptor with a custom cache manager implementation.
