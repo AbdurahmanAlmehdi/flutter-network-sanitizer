@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart' show sha256;
 import 'package:dio/dio.dart';
 
 extension RequestKeyGeneratorExtension on RequestOptions {
@@ -13,6 +14,8 @@ extension RequestKeyGeneratorExtension on RequestOptions {
         this.headers.entries.toList()..sort((a, b) => a.key.compareTo(b.key))));
     final body = data != null ? jsonEncode(data) : '';
     final rawKey = '$method|$path|$queryParams|$headers|$body';
-    return rawKey;
+    final bytes = utf8.encode(rawKey);
+    final digest = sha256.convert(bytes);
+    return digest.toString();
   }
 }

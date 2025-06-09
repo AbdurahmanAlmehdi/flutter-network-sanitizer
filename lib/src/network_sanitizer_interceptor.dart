@@ -8,30 +8,30 @@ import 'core/cache_manager/hive_cache_manager.dart';
 import 'core/constants/sanitizer_constants.dart';
 
 /// A Dio interceptor that provides HTTP request caching and deduplication.
-/// 
+///
 /// This interceptor automatically caches HTTP responses and prevents duplicate
 /// simultaneous requests. It supports configurable cache duration and allows
 /// for custom cache storage implementations.
-/// 
+///
 /// ## Features
-/// 
+///
 /// - **Request Caching**: Stores responses based on request parameters
-/// - **Request Deduplication**: Prevents duplicate simultaneous requests  
+/// - **Request Deduplication**: Prevents duplicate simultaneous requests
 /// - **Cache Invalidation**: Supports force refresh functionality
 /// - **Configurable Duration**: Set custom cache expiration times
 /// - **Custom Storage**: Use your own cache storage implementation
-/// 
+///
 /// ## Usage
-/// 
+///
 /// ```dart
 /// final dio = Dio();
 /// dio.interceptors.add(
 ///   NetworkSanitizerInterceptor(const Duration(minutes: 5)),
 /// );
 /// ```
-/// 
+///
 /// ## Force Refresh
-/// 
+///
 /// ```dart
 /// final response = await dio.get(
 ///   '/api/users',
@@ -45,18 +45,18 @@ class NetworkSanitizerInterceptor extends Interceptor {
   final _incomingRequests = <String, List<Completer<Response>>>{};
 
   /// Creates a NetworkSanitizerInterceptor with the specified cache duration.
-  /// 
+  ///
   /// Uses the default [HiveCacheManager] for storage.
-  /// 
+  ///
   /// [cacheDuration] - How long responses should be cached before expiring
   NetworkSanitizerInterceptor(this._cacheDuration) {
     _cacheManager = HiveCacheManager();
   }
 
   /// Creates a NetworkSanitizerInterceptor with a custom cache manager.
-  /// 
+  ///
   /// This constructor allows you to provide your own cache storage implementation.
-  /// 
+  ///
   /// [cacheDuration] - How long responses should be cached before expiring
   /// [cacheManager] - Custom cache storage implementation
   NetworkSanitizerInterceptor.custom({
@@ -66,7 +66,7 @@ class NetworkSanitizerInterceptor extends Interceptor {
         _cacheManager = cacheManager;
 
   /// Handles incoming requests by checking cache and deduplicating requests.
-  /// 
+  ///
   /// This method:
   /// 1. Checks for force refresh requests
   /// 2. Deduplicates simultaneous identical requests
@@ -106,7 +106,7 @@ class NetworkSanitizerInterceptor extends Interceptor {
   }
 
   /// Handles successful responses by caching them and resolving duplicate requests.
-  /// 
+  ///
   /// This method:
   /// 1. Stores the response in cache
   /// 2. Resolves all waiting duplicate requests with the same response
@@ -129,7 +129,7 @@ class NetworkSanitizerInterceptor extends Interceptor {
   }
 
   /// Handles request errors by notifying all waiting duplicate requests.
-  /// 
+  ///
   /// This method ensures that all duplicate requests receive the same error
   /// when a network request fails.
   @override
@@ -147,7 +147,7 @@ class NetworkSanitizerInterceptor extends Interceptor {
   }
 
   /// Checks if a cached response has expired based on the configured cache duration.
-  /// 
+  ///
   /// [response] - The cached response to check
   /// Returns true if the cache has expired, false otherwise
   bool _isCacheExpired(Response response) {
@@ -162,13 +162,13 @@ class NetworkSanitizerInterceptor extends Interceptor {
   }
 
   /// Checks if a request should invalidate the cache and removes it if needed.
-  /// 
+  ///
   /// [options] - The request options to check
   /// [key] - The cache key for the request
   void _checkForceRefresh(RequestOptions options, String key) {
-    final validateCache =
-        options.extra[SanitizerConstants.validateCacheKey] == true;
-    if (!validateCache) {
+    final invalidateCache =
+        options.extra[SanitizerConstants.invalidateCacheKey] == true;
+    if (invalidateCache) {
       _cacheManager.remove(key);
     }
   }
