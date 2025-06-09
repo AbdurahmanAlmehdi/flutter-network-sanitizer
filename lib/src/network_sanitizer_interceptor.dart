@@ -166,9 +166,9 @@ class NetworkSanitizerInterceptor extends Interceptor {
   /// [options] - The request options to check
   /// [key] - The cache key for the request
   void _checkForceRefresh(RequestOptions options, String key) {
-    final invalidate =
-        options.extra[SanitizerConstants.invalidateCacheKey] == true;
-    if (invalidate) {
+    final validateCache =
+        options.extra[SanitizerConstants.validateCacheKey] == true;
+    if (!validateCache) {
       _cacheManager.remove(key);
     }
   }
